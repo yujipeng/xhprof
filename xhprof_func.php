@@ -23,11 +23,12 @@ ini_set('xhprof.output_dir' , dirname(__FILE__) . '/xhprof_log/');
  * @return void
  */
 function xhprof_save($flag = null, $ignored_functions = array(), $namespace = '', $save_percent = 10, $percent_max = 10, $percent_min = 0) {
-	$random = mt_rand($percent_min, $percent_max);
+    $random = mt_rand($percent_min, $percent_max);
     if($random > $save_percent) return false;
     // start
     xhprof_start($flag, $ignored_functions);
-	register_shutdown_function('xhprof_end', $namespace);
+    // register  xhprof_end
+    register_shutdown_function('xhprof_end', $namespace);
 }
 // xhprof_save();
 
@@ -37,19 +38,19 @@ function xhprof_save($flag = null, $ignored_functions = array(), $namespace = ''
  * @param mixed $flag  统计数据的标志位，默认只统计执行时间，默认为空
  * example : $flag = XHPROF_FLAGS_NO_BUILTINS | XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY;
  * @param array $ignored_functions 统计忽略方法列表，默认为空
- * example : $ignored_functions = array('Util_Array::hashmap', 'quote_user::tidyList');
+ * example : $ignored_functions = array('Util_Array::hashmap', 'array_unique');
  * @access public
  * @return void
  */
 function xhprof_start($flag = null, $ignored_functions = array()){
-	include_once dirname(__FILE__) . "/xhprof_lib/utils/xhprof_lib.php";
-	include_once dirname(__FILE__) . "/xhprof_lib/utils/xhprof_runs.php";
+    include_once dirname(__FILE__) . "/xhprof_lib/utils/xhprof_lib.php";
+    include_once dirname(__FILE__) . "/xhprof_lib/utils/xhprof_runs.php";
     // start profiling
     if($ignored_functions && is_array($ignored_functions))
         $ignored_functions = array(
             'ignored_functions' => $ignored_functions,
-            );
-	xhprof_enable($flag, $ignored_functions);
+        );
+    xhprof_enable($flag, $ignored_functions);
 }
 
 
@@ -62,7 +63,7 @@ function xhprof_start($flag = null, $ignored_functions = array()){
  */
 function xhprof_end($namespace = ''){
     if(!$namespace) 
-	    $namespace = isset($_SERVER['REQUEST_URI']) ? str_replace(array('/','?','&','='), array('-','|',';',':'), ltrim($_SERVER['REQUEST_URI'], '/')) : '';
+        $namespace = isset($_SERVER['REQUEST_URI']) ? str_replace(array('/','?','&','='), array('-','|',';',':'), ltrim($_SERVER['REQUEST_URI'], '/')) : '';
     $run = xhprof_disable();
     $xhprof = new XHProfRuns_Default; 
     return $xhprof->save_run($run, $namespace);

@@ -39,7 +39,7 @@
       * @param mixed $flag  统计数据的标志位，默认只统计执行时间，默认为空
       * example : $flag = XHPROF_FLAGS_NO_BUILTINS | XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY;
       * @param array $ignored_functions 统计忽略方法列表，默认为空
-      * example : $ignored_functions = array('Util_Array::hashmap', 'quote_user::tidyList');
+      * example : $ignored_functions = array('Util_Array::hashmap', 'array_unique');
       * @access public
       * @return void
       */
