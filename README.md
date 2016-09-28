@@ -33,43 +33,41 @@
 
 函数说明:
 
-``
- /** 
-  * xhprof_start 
-  * 开始记录
-  * @param mixed $flag  统计数据的标志位，默认只统计执行时间，默认为空
-  * example : $flag = XHPROF_FLAGS_NO_BUILTINS | XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY;
-  * @param array $ignored_functions 统计忽略方法列表，默认为空
-  * example : $ignored_functions = array('Util_Array::hashmap', 'quote_user::tidyList');
-  * @access public
-  * @return void
-  */
- function xhprof_start($flag = null, $ignored_functions = array()){}
- 
- /**
-  * xhprof_end 
-  * 结束记录
-  * @param string $namespace 命名标识，默认是url和参数处理后的字符串
-  * @access public
-  * @return void
-  */
- function xhprof_end($namespace = ''){}
-  
- 
- /**
-  * xhprof_save 
-  * 从调用到页面结束记录
-  * @param mixed $flag  统计数据的标志位，默认只统计执行时间，默认为空
-  * @param array $ignored_functions 统计忽略方法列表，默认为空
-  * @param string $namespace 命名标识，默认是url和参数处理后的字符串
-  * @param int $save_percent 按照百分比进行记录，比如 1/10，这里设置1，默认10
-  * @param int $percent_max 按照百分比进行记录，比如 1/10，这里设置10，默认10
-  * @param int $percent_min 按照百分比进行记录，比如 1/10，这里设置0，默认0
-  * @access public
-  * @return void
-  */
- function xhprof_save($flag = null, $ignored_functions = array(), $namespace = '', $save_percent = 10, $percent_max = 10, $percent_min = 0) {}
-``
+     /** 
+      * xhprof_start 
+      * 开始记录
+      * @param mixed $flag  统计数据的标志位，默认只统计执行时间，默认为空
+      * example : $flag = XHPROF_FLAGS_NO_BUILTINS | XHPROF_FLAGS_CPU | XHPROF_FLAGS_MEMORY;
+      * @param array $ignored_functions 统计忽略方法列表，默认为空
+      * example : $ignored_functions = array('Util_Array::hashmap', 'quote_user::tidyList');
+      * @access public
+      * @return void
+      */
+     function xhprof_start($flag = null, $ignored_functions = array()){}
+     
+     /**
+      * xhprof_end 
+      * 结束记录
+      * @param string $namespace 命名标识，默认是url和参数处理后的字符串
+      * @access public
+      * @return void
+      */
+     function xhprof_end($namespace = ''){}
+      
+     
+     /**
+      * xhprof_save 
+      * 从调用到页面结束记录
+      * @param mixed $flag  统计数据的标志位，默认只统计执行时间，默认为空
+      * @param array $ignored_functions 统计忽略方法列表，默认为空
+      * @param string $namespace 命名标识，默认是url和参数处理后的字符串
+      * @param int $save_percent 按照百分比进行记录，比如 1/10，这里设置1，默认10
+      * @param int $percent_max 按照百分比进行记录，比如 1/10，这里设置10，默认10
+      * @param int $percent_min 按照百分比进行记录，比如 1/10，这里设置0，默认0
+      * @access public
+      * @return void
+      */
+     function xhprof_save($flag = null, $ignored_functions = array(), $namespace = '', $save_percent = 10, $percent_max = 10, $percent_min = 0) {}
 
 报告字段含义说明：
 
