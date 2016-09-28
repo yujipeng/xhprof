@@ -15,19 +15,22 @@ function foo() {
 
 // 调用xhprof文件
 require dirname(__FILE__) . '/../xhprof_func.php';
-
+echo '<xmp>';
+echo 'start'.chr(10);
 // 使用方式 1
 
-xhprof_start();
+// xhprof_start();
 
-foo();
+// foo();
 
-xhprof_end();
+// xhprof_end();
 
 
-// 使用方式 1
+// 使用方式 2
 
 xhprof_save();
 
 foo();
 
+
+echo 'end'.chr(10);

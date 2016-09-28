@@ -63,7 +63,7 @@ function xhprof_start($flag = null, $ignored_functions = array()){
  */
 function xhprof_end($namespace = ''){
     if(!$namespace) 
-        $namespace = isset($_SERVER['REQUEST_URI']) ? str_replace(array('/','?','&','='), array('-','|',';',':'), ltrim($_SERVER['REQUEST_URI'], '/')) : '';
+        $namespace = isset($_SERVER['REQUEST_URI']) ? str_replace(array('/','?','&','=','.'), array('-','|',';',':','_'), ltrim($_SERVER['REQUEST_URI'], '/')) : '';
     $run = xhprof_disable();
     $xhprof = new XHProfRuns_Default; 
     return $xhprof->save_run($run, $namespace);

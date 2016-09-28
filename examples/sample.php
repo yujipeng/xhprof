@@ -12,7 +12,7 @@ function foo() {
     $x = strlen("abc");
   }
 }
-
+echo '<xmp>';
 // start profiling
 xhprof_enable();
 
@@ -25,6 +25,7 @@ $xhprof_data = xhprof_disable();
 // display raw xhprof data for the profiler run
 print_r($xhprof_data);
 
+ini_set('xhprof.output_dir' , dirname(__FILE__) . '/../xhprof_log'); 
 
 $XHPROF_ROOT = realpath(dirname(__FILE__) .'/..');
 include_once $XHPROF_ROOT . "/xhprof_lib/utils/xhprof_lib.php";
