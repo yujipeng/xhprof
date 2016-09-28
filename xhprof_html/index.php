@@ -30,6 +30,7 @@
 // @author(s)  Kannan Muthukkaruppan
 //             Changhao Jiang
 //
+require dirname(__FILE__) . '/../xhprof_func.php';
 
 // by default assume that xhprof_html & xhprof_lib directories
 // are at the same level.

@@ -28,6 +28,7 @@
  *
  * @author Changhao Jiang (cjiang@facebook.com)
  */
+require dirname(__FILE__) . '/../xhprof_func.php';
 
 // by default assume that xhprof_html & xhprof_lib directories
 // are at the same level.
